@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>CASTOTO — Mix Parlay Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="backdrop"></div>
+
+  <main class="page">
+    <header class="topbar">
+      <a class="logo-wrap" href="#" aria-label="CASTOTO">
+        <img src="assets/castoto-logo.png" alt="CASTOTO">
+      </a>
+
+      <div class="title-wrap">
+        <h1>MIX PARLAY</h1>
+        <span>CALCULATOR</span>
+      </div>
+    </header>
+
+    <section class="calculator">
+      <div class="top-line"></div>
+
+      <section class="stake-section">
+        <div class="section-heading">
+          <div class="heading-icon">▣</div>
+          <h2>JUMLAH STAKE</h2>
+        </div>
+
+        <div class="stake-control">
+          <span class="currency">Rp</span>
+          <input id="stake" type="number" min="0" step="1000" value="100000">
+          <button type="button" id="minusStake">−</button>
+          <button type="button" id="plusStake">+</button>
+        </div>
+      </section>
+
+      <section class="matches-section">
+        <div class="section-heading">
+          <div class="heading-icon ball">●</div>
+          <h2>PARTAI</h2>
+        </div>
+
+        <div id="matches"></div>
+
+        <button class="add-match" id="addMatch" type="button">
+          <b>+</b> TAMBAH PARTAI
+        </button>
+      </section>
+
+      <section class="summary">
+        <article class="summary-card odds">
+          <span>TOTAL ODDS</span>
+          <strong id="totalOdds">2.775</strong>
+          <i>↗</i>
+        </article>
+
+        <article class="summary-card payout">
+          <span>ESTIMASI BAYAR</span>
+          <strong id="payout">Rp 277.500</strong>
+          <i>▣</i>
+        </article>
+
+        <article class="summary-card profit">
+          <span>PROFIT BERSIH</span>
+          <strong id="profit">Rp 177.500</strong>
+          <i>↗</i>
+        </article>
+      </section>
+
+      <button class="reset" id="reset" type="button">
+        <b>↻</b> RESET FORM
+      </button>
+    </section>
+
+    <div class="footer-note">♙ &nbsp; Perhitungan akurat &amp; real-time</div>
+  </main>
+
+  <template id="matchTemplate">
+    <div class="match">
+      <div class="match-number">01</div>
+
+      <input class="match-name" type="text" placeholder="Nama pertandingan">
+
+      <div class="odds-control">
+        <span>ODDS</span>
+        <input class="match-odds" type="number" min="0.01" step="0.01" value="1.50">
+        <button class="odds-minus" type="button">−</button>
+        <button class="odds-plus" type="button">+</button>
+      </div>
+
+      <button class="delete" type="button" title="Hapus partai">♜</button>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
