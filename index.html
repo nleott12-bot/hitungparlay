@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CASTOTO - Mix Parlay Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <img class="brand" src="assets/castoto-logo.png" alt="CASTOTO">
+  <div class="top-actions">
+    <button id="saveBtn">💾 SIMPAN</button>
+    <button id="historyBtn">◷ RIWAYAT</button>
+    <button id="resetBtn">↻ RESET</button>
+  </div>
+
+  <main class="panel">
+    <h1>MIX PARLAY CALCULATOR</h1>
+
+    <section class="table-wrap">
+      <div class="grid header">
+        <div>NO</div><div>PERTANDINGAN</div><div>ODDS</div><div>STATUS</div><div>HASIL ODDS</div><div></div>
+      </div>
+      <div id="rows"></div>
+      <button class="add" id="addBtn">＋ TAMBAH PARTAI</button>
+    </section>
+
+    <section class="stake-area">
+      <div class="stake">
+        <label>JUMLAH STAKE (Rp)</label>
+        <div class="stake-line">
+          <input id="stake" type="number" min="0" step="1000" value="100000">
+          <button id="minus">−</button><button id="plus">＋</button>
+        </div>
+      </div>
+      <div class="quick">
+        <label>QUICK STAKE</label>
+        <div class="quick-buttons">
+          <button data-stake="10000">10K</button>
+          <button data-stake="50000">50K</button>
+          <button data-stake="100000">100K</button>
+          <button data-stake="500000">500K</button>
+          <button data-stake="1000000">1M</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary">
+      <div class="card red"><span>TOTAL ODDS</span><strong id="totalOdds">0.000</strong></div>
+      <div class="card orange"><span>ESTIMASI BAYAR</span><strong id="payout">Rp 0</strong></div>
+      <div class="card green"><span>PROFIT BERSIH</span><strong id="profit">Rp 0</strong></div>
+    </section>
+
+    <div class="bottom-actions">
+      <button class="primary" id="recalc">↻ HITUNG ULANG</button>
+      <button id="share">♧ BAGIKAN HASIL</button>
+    </div>
+    <div class="note">♢ Perhitungan akurat &amp; real-time</div>
+  </main>
+</div>
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>

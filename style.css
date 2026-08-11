@@ -1,0 +1,72 @@
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;color:#fff}
+body{
+  min-height:100vh;
+  background:#170000 url("assets/background.png") center center/cover fixed no-repeat;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;
+  background:rgba(0,0,0,.10);
+}
+.app{position:relative;min-height:100vh;padding:28px 4vw 36px}
+.brand{position:absolute;left:3.2vw;top:22px;width:min(210px,17vw);height:auto;z-index:5;filter:drop-shadow(0 3px 7px rgba(0,0,0,.65))}
+.top-actions{position:absolute;right:3.2vw;top:28px;display:flex;gap:14px;z-index:5}
+button{font:inherit;color:#fff;background:rgba(30,0,0,.58);border:1px solid rgba(255,45,45,.8);border-radius:7px;cursor:pointer}
+.top-actions button{padding:13px 22px;font-weight:700;backdrop-filter:blur(4px)}
+.top-actions button:hover,.quick-buttons button:hover,.bottom-actions button:hover,.add:hover{background:rgba(220,0,0,.55)}
+.panel{
+  width:min(1120px,94vw);margin:100px auto 0;
+  padding:26px 20px 18px;border:1px solid rgba(255,70,70,.85);border-radius:20px;
+  background:linear-gradient(180deg,rgba(40,0,0,.67),rgba(12,0,0,.58));
+  box-shadow:0 0 28px rgba(255,0,0,.24),inset 0 0 22px rgba(255,0,0,.08);
+  backdrop-filter:blur(2px);
+}
+h1{text-align:center;margin:0 0 24px;font-size:31px;letter-spacing:.5px;text-shadow:0 0 9px #f00}
+.table-wrap{padding:0 2px}
+.grid{display:grid;grid-template-columns:55px 2.15fr 160px 1.35fr 160px 58px;gap:10px;align-items:center}
+.header{padding:0 10px 10px;font-size:15px;font-weight:700}
+.row{margin-bottom:10px}
+.row>div{min-width:0}
+input,select{
+  width:100%;height:55px;border:0;border-radius:6px;padding:0 15px;
+  background:rgba(255,255,255,.94);color:#181818;font-size:15px;outline:none
+}
+input:focus,select:focus{box-shadow:0 0 0 2px #ff3434}
+.num{height:55px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.94);color:#222;border-radius:6px;font-weight:700;font-size:18px}
+.status{position:relative}
+.status select{padding-left:42px}
+.status:before{content:"";position:absolute;left:17px;top:20px;width:16px;height:16px;border-radius:50%;background:#23cf32;z-index:1;pointer-events:none}
+.status.halfwin:before{background:#7ddc19}.status.halfloss:before{background:#ff9d13}.status.loss:before{background:#f22}.status.draw:before{background:#aaa}
+.delete{height:55px;width:55px;border-color:#ff3b3b;font-size:23px;background:rgba(80,0,0,.55)}
+.add{width:100%;height:48px;margin:4px 0 14px;background:rgba(255,255,255,.95);color:#c00;font-weight:700;font-size:16px}
+.stake-area{display:grid;grid-template-columns:1fr 1.5fr;gap:28px;border-top:1px solid rgba(255,255,255,.1);padding:15px 14px}
+label{display:block;margin-bottom:10px;font-size:15px;font-weight:700}
+.stake-line{display:flex;gap:10px}
+.stake-line input{flex:1}
+.stake-line button{width:50px;font-size:26px;background:rgba(120,0,0,.5)}
+.quick-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.quick-buttons button{padding:11px 22px;min-width:84px}
+.quick-buttons button.active{background:#d90000;box-shadow:0 0 10px rgba(255,0,0,.45)}
+.summary{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+.card{min-height:102px;padding:18px 16px;border:1px solid;border-radius:8px;background:rgba(15,0,0,.48)}
+.card span{display:block;font-size:14px;font-weight:700;margin-bottom:9px}.card strong{font-size:28px}
+.red{border-color:#f33}.red strong{color:#ff2525}.orange{border-color:#c66b24}.orange strong{color:#ff9900}.green{border-color:#7a9c2a}.green strong{color:#70e000}
+.bottom-actions{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:22px auto 14px;max-width:800px}
+.bottom-actions button{height:55px;font-weight:700;font-size:16px}.primary{background:#e00000!important;box-shadow:0 0 13px rgba(255,0,0,.32)}
+.note{text-align:center;color:#ddd;font-size:15px}
+#toast{position:fixed;right:20px;bottom:20px;padding:12px 18px;border-radius:8px;background:#180000;border:1px solid #e33;opacity:0;transform:translateY(10px);transition:.25s;z-index:20}
+#toast.show{opacity:1;transform:none}
+@media(max-width:900px){
+ .brand{width:150px}.top-actions{top:76px;right:3vw}.panel{margin-top:130px}
+ .grid{grid-template-columns:42px 1.7fr 100px 1.2fr 100px 46px;gap:6px}
+ input,select,.num,.delete{height:48px;font-size:12px}.status select{padding-left:25px}.status:before{left:8px;top:16px;width:11px;height:11px}
+}
+@media(max-width:650px){
+ .app{padding:15px 2vw}.brand{left:12px;top:10px;width:125px}.top-actions{right:10px;top:55px;gap:5px}.top-actions button{padding:8px 9px;font-size:11px}
+ .panel{margin-top:105px;padding:18px 8px;border-radius:13px}h1{font-size:20px}
+ .header{font-size:9px}.grid{grid-template-columns:30px 1.7fr 70px 100px 70px 38px;gap:4px}
+ input,select,.num,.delete{height:42px;padding:0 7px;font-size:10px}.delete{width:38px}.status select{padding-left:18px}.status:before{left:5px;top:15px;width:8px;height:8px}
+ .stake-area,.summary{grid-template-columns:1fr}.summary{gap:8px}.card{min-height:80px}.card strong{font-size:22px}
+ .bottom-actions{grid-template-columns:1fr;gap:8px}.quick-buttons{gap:5px}.quick-buttons button{min-width:58px;padding:8px 10px;font-size:11px}
+}
