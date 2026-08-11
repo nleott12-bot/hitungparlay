@@ -7,7 +7,7 @@ body{
 }
 body:before{
   content:"";position:fixed;inset:0;pointer-events:none;
-  background:rgba(0,0,0,.10);
+  background:rgba(0,0,0,.48);
 }
 .app{position:relative;min-height:100vh;padding:28px 4vw 36px}
 .brand{position:absolute;left:3.2vw;top:22px;width:min(210px,17vw);height:auto;z-index:5;filter:drop-shadow(0 3px 7px rgba(0,0,0,.65))}
